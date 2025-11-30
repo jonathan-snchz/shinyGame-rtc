@@ -1,0 +1,296 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  --lightColor : rgba(233, 227, 227, 0.888);
+  --darkColor : #242424;
+  --errorColor : rgb(175, 52, 77);
+  --transitions : 0.25s;
+  --borderRadius : 30px;
+}
+html, body{
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+main{
+  min-height: 90vh;
+}
+#root{
+  min-height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.darkApp{
+  color-scheme: only light dark;
+  color: var(--lightColor);
+  background-color: var(--darkColor);
+  min-height: 100vh;
+  min-width: 100%;
+}
+.lightApp{
+  color-scheme: only light;
+  color: var(--darkColor);
+  background-color: var(--lightColor);
+  min-height: 100vh;
+  min-width: 100%; 
+}
+footer > div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1% 0;
+}
+header{
+  display: flex;
+  justify-content: space-between;
+  gap: 55px;
+  padding: 0 2% 0 0%;
+  border-bottom: var(--errorColor) 1px solid;
+  margin-bottom: 1rem;
+}
+.navBar{
+  display: flex;
+}
+.navheader{
+  font-size: large;
+  padding-bottom: 0.5rem;
+}
+.navheader :first-child{
+  font-size: 2rem;
+}
+.navheader > a{
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  border-right: 1px solid var(--errorColor);
+  max-width: 10%;
+  padding: 1%;
+}
+.lightApp .navheader > a:hover{
+  background-color: var(--darkColor);
+  color: var(--lightColor);
+}
+.darkApp .navheader > a:hover{
+  background-color: var(--lightColor);
+  color: var(--darkColor);
+}
+.navfooter{
+  flex-direction: column;
+  align-items: start;
+  gap: 15px;
+}
+.navfooter > a {
+  color: inherit;
+}
+.navfooter > a::before{
+  content: "•";
+  margin-right: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+.themeButton{
+  margin: auto;
+  min-width: fit-content;
+  height: 5vh;
+  border-radius: var(--borderRadius);
+}
+.welcome {
+  padding: 2%;
+  text-align: justify;
+}
+.streak{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.isItShiny, .pokeDisplay{
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  padding: 2%;
+  border-radius: var(--borderRadius);
+  gap: 1vh;
+}
+.lightApp .isItShiny, .pokeDisplay{
+    border: 1px solid var(--darkColor);
+}
+.darkApp .isItShiny, .pokeDisplay{
+    border: 1px solid var(--lightColor);
+}
+.pokeDisplay > h1{
+  text-transform: capitalize;
+  text-align: center;
+}
+.pokeDisplay > img{
+  width: 40%;
+  border-radius: var(--borderRadius);
+  min-width: 300px;
+  min-height: 300px;
+}
+.buttons{
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  padding: 1% 0%;
+}
+.buttons > button{
+  width: 100px;
+  color: var(--lightColor);
+  background-color: var(--errorColor);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--borderRadius);
+  height: 50px;
+  cursor: pointer;
+  transition: var(--transitions);
+}
+.buttons > button:hover{
+  transform: scale(1.1);
+  transition: var(--transitions);
+}
+.animated{
+  display: flex;
+  font-size: 2rem;
+  font-weight: bold;
+  justify-content: center;
+}
+.animated > span{
+  animation: bounce 0.6s infinite ease-in-out;
+}
+.animated > span:nth-child(1){
+  animation-delay: 0s;
+}
+.animated > span:nth-child(2){
+  animation-delay: 0.1s;
+}
+.animated > span:nth-child(3){
+  animation-delay: 0.2s;
+}
+@keyframes bounce {
+  0%, 100%{
+    transform: translateY(0);
+  }
+  50%{
+    transform: translateY(-5px);
+  }
+}
+.fetching{  
+  color: var(--errorColor);
+}
+.response{
+  flex-wrap: wrap;
+  height: fit-content;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.generations{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+.generations > form{
+  width: 100%;
+}
+.generations > form > .buttons{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  justify-content: space-around;
+}
+.generations > form > .buttons > button{
+  min-width: 150px;
+  margin: auto;
+}
+.genCardsGrid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3%;
+  padding: 2%;
+}
+.genCard{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--borderRadius);
+  border: 1px solid var(--errorColor);
+  padding: 1rem 3rem;
+  text-align: center;
+  min-width: 100px;
+  transition: var(--transitions);
+}
+.genCard input[type=checkbox]{
+ display: none;
+}
+.genCard:hover{
+  cursor: pointer;
+}
+.lightApp .selected{
+  background-color: var(--darkColor);
+  color: var(--lightColor);
+}
+.darkApp .selected{
+  background-color: var(--lightColor);
+  color: var(--darkColor);
+}
+.selected{
+  transform: scale(0.95);
+  transition: var(--transitions);
+}
+@media (max-width: 1000px){
+  .animated{
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  header{
+    justify-content: center;
+    gap: 1vw;
+  }
+  .navheader{
+    font-size: medium;
+  }
+  .navheader > a{
+    max-width: 100vw;
+    max-height: 50vh;
+    text-align: center;
+  }
+  .navheader >.gensLinks{
+    display: none;
+  }
+  .generations{
+    width: 100%;
+  }
+  .genCard{
+    padding: 2%;
+  }
+  .generations > form > .buttons {
+    padding-top: 3vh;
+    width: 100%;
+    justify-content: center;
+  }
+  .generations > form > .buttons > button{
+    min-width: 0;
+    font-size: small;
+    padding: 1%;
+  }
+  .pokeDisplay, .isItShiny{
+    width: 80%;
+  }
+}
